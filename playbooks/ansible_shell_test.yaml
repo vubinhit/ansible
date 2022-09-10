@@ -1,10 +1,10 @@
 ---
   - name: Shell Examples
     hosts: all
-    become: yes
-    become_user: vt_admin
     tasks:
     - name: Check Date with Shell command
+      become: yes
+      become_user: vt_admin
       shell:
          "date"
       register: datecmd

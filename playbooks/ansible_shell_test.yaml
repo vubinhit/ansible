@@ -1,6 +1,6 @@
 ---
   - name: Shell Examples
-    hosts: testservers
+    hosts: all
     tasks:
 
     - name: Check Date with Shell command
@@ -8,5 +8,4 @@
          "date"
       register: datecmd
       tags: datecmd
-
     - debug: msg="{{datecmd.stdout}}"

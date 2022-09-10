@@ -1,6 +1,8 @@
 ---
   - name: Shell Examples
     hosts: all
+    become: yes
+    become_user: vt_admin
     tasks:
     - name: Check Date with Shell command
       shell:

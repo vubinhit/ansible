@@ -4,7 +4,7 @@
     tasks:
     - name: Check Date with Shell command
       become: yes
-      become_user: vt_admin
+      #become_user: vt_admin
       shell:
          "date"
       register: datecmd

@@ -4,8 +4,8 @@
     tasks:
     - name: Allow port 80 http
       become: yes
-        ansible_become_user: vt_admin
-        become_ask_pass: yes
+      #ansible_become_user: vt_admin
+      become_ask_pass: yes
       iptables_raw:
          name: allow_tcp_80
          rules: '-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT'

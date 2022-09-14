@@ -10,3 +10,11 @@
       register: datecmd
       tags: datecmd
     - debug: msg="{{datecmd.stdout}}"
+    - name: check user id
+      become: yes
+      become_user: root
+      shell:
+         "id"
+      register: id_var
+      tags: idcmd
+    - debug: msg="{{id_var.stdout}}"

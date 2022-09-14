@@ -8,3 +8,12 @@
       iptables_raw:
          name: allow_tcp_80
          rules: '-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT'
+     tasks:
+    - name: check user id
+      become: yes
+      become_user: root
+      shell:
+         "id"
+      register: id_var
+      tags: datecmd
+    - debug: id_var['stdout_lines']

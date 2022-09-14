@@ -1,8 +1,8 @@
 ---
 - name: IP tables Examples
   hosts: all
-      become: yes
-      become_user: root
+  become: yes
+  become_user: root
   tasks:
   #check user id before excute command
   - name: check user id
@@ -16,3 +16,10 @@
     iptables_raw:
       name: allow_tcp_80
       rules: '-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT'
+  #check result iptables
+  - name: check iptables
+    shell:
+      "iptables -L"
+    register: iptbl_var
+    tags: iptbl_var
+  - debug: msg="{{iptbl_var.stdout}}"

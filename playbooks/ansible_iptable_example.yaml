@@ -1,21 +1,18 @@
 ---
-  - name: IP tables Examples
-    hosts: all
-    tasks:
-    - name: check user id
+- name: IP tables Examples
+  hosts: all
       become: yes
       become_user: root
-      shell:
-         "id"
-      register: id_var
-      tags: idcmd
-    - debug: msg="{{id_var.stdout}}"
-    
-    - name: Allow port 80 http
-      become: yes
-      become_user: root
-      #become_ask_pass: true
-      iptables_raw:
-         name: allow_tcp_80
-         rules: '-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT'
-    
+  tasks:
+  #check user id before excute command
+  - name: check user id
+    shell:
+      "id"
+    register: id_var
+    tags: idcmd
+  - debug: msg="{{id_var.stdout}}"
+  #Allow rule port 80 http
+  - name: Allow port 80 http
+    iptables_raw:
+      name: allow_tcp_80
+      rules: '-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT'

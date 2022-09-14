@@ -4,7 +4,6 @@
     tasks:
     - name: Allow port 80 http
       become: yes
-      #ansible_become_user: vt_admin
       become_ask_pass: yes
       iptables_raw:
          name: allow_tcp_80

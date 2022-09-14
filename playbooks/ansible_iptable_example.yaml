@@ -5,7 +5,6 @@
     - name: Allow port 80 http
       become: yes
       ansible_become_user: vt_admin
-      ansible_become_method: sudo
       become_ask_pass: yes
       iptables_raw:
          name: allow_tcp_80

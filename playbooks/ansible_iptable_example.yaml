@@ -13,6 +13,7 @@
     
     - name: Allow port 80 http
       become: yes
+      become_user: root
       #become_ask_pass: true
       iptables_raw:
          name: allow_tcp_80

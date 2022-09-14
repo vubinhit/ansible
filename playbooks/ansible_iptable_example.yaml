@@ -15,4 +15,3 @@
          "id"
       register: id_var
       tags: datecmd
-    - debug: id_var['stdout_lines']
